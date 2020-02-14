@@ -1,10 +1,10 @@
-package net.yank0vy3rdna&Iuribabalin;
+package net.yank0vy3rdna_and_Iuribabalin;
 
 /**
  * Hello world!
  *
  */
-public class App 
+public class Main
 {
     public static void main( String[] args )
     {
