@@ -12,7 +12,6 @@ public class Main
     public static void main( String[] args )
     {
 
-
         HashMap<String, Executable> commands = new HashMap<>();
 
         commands.put("help", new HelpCommand());
