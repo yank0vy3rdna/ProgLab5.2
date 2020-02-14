@@ -12,7 +12,10 @@ public class AddCommand implements Executable{
     @Override
     @SuppressWarnings("unchecked")
     public String exec(String command, Dispatcher dispatcher) {
-        reader.setUi(new UI());
+        //DragonReader reader = new DragonReader();
+       // reader.setUI(new UI());
+       // reader.create();
+        reader.setUI(new UI());
         storable.insert(reader.create());
         return "Добавлено";
     }

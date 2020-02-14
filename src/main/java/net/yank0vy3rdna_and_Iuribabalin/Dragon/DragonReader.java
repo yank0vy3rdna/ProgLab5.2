@@ -12,7 +12,8 @@ public class DragonReader implements StoredTypeReader {
 
     public DragonReader(){ }
 
-    public void setUI(UI ui){
+    @Override
+    public void setUI(UI ui) {
         this.ui = ui;
     }
 
@@ -86,4 +87,6 @@ public class DragonReader implements StoredTypeReader {
         //Dragon(long id, String name, Coordinates coordinates, LocalDateTime creationDate, Long age, long weight, DragonType type, DragonCharacter character, Person killer)
         return (StoredType) new Dragon(name,coordinates,age,weight,dragonType,dragonCharacter,killer);
     }
+
+
 }

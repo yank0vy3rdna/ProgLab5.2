@@ -1,5 +1,6 @@
 package net.yank0vy3rdna_and_Iuribabalin.Dragon;
 import net.yank0vy3rdna_and_Iuribabalin.App.ObjectInterfaces.StoredType;
+import net.yank0vy3rdna_and_Iuribabalin.JSON.Workerable;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -99,6 +100,11 @@ public class Dragon implements StoredType {
             return age.compareTo(((Dragon) obj).age);
         }
         return 0;
+    }
+
+    @Override
+    public String toString(Workerable worker) {
+        return null;
     }
    /* public String toString(Workerable worker){
         return worker.writeValue(this);
