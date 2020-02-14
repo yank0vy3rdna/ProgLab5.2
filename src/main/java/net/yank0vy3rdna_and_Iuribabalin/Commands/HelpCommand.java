@@ -1,8 +1,15 @@
 package net.yank0vy3rdna_and_Iuribabalin.Commands;
 
 import net.yank0vy3rdna_and_Iuribabalin.App.Dispatcher;
+import net.yank0vy3rdna_and_Iuribabalin.App.UI;
 
 public class HelpCommand implements Executable {
+    private final UI ui;
+
+    public HelpCommand(){
+         ui = new UI();
+    }
+
     @Override
     public String exec(String command, Dispatcher dispatcher) {
         return "help : вывести справку по доступным командам"+

@@ -7,6 +7,7 @@ public class UI {
     public UI(){
         in = new Scanner(System.in);
     }
+
     public String readField(String fieldName){
         System.out.print("Введите значение поля "+fieldName+": ");
         return in.nextLine();
@@ -15,6 +16,7 @@ public class UI {
         System.out.print(">> ");
         return in.nextLine();
     }
+
     public void print(String string){
         System.out.println(string);
     }

@@ -1,9 +1,11 @@
 package net.yank0vy3rdna_and_Iuribabalin.Dragon;
+import net.yank0vy3rdna_and_Iuribabalin.App.ObjectInterfaces.StoredType;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
-public class Dragon implements StoredType{
+public class Dragon implements StoredType {
     private long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
@@ -98,7 +100,7 @@ public class Dragon implements StoredType{
         }
         return 0;
     }
-    public String toString(Workerable worker){
+   /* public String toString(Workerable worker){
         return worker.writeValue(this);
-    }
+    }*/
 }
