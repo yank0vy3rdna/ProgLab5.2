@@ -8,9 +8,9 @@ import net.yank0vy3rdna_and_Iuribabalin.JSON.Workerable;
 public class InfoCommand implements Executable {
 
     @Override
-    public String exec(String command, Dispatcher dispatcher, StoredTypeReader reader, CollectionWorker collectionWorker, Workerable workerable,String filename) {
+    public String exec(String command, Dispatcher dispatcher) {
 
-        return "Collection type: " + collectionWorker.getCollectionType() + "\nInitialization data: " + collectionWorker.getCreationDate() + "\nNumber of elements: " +  collectionWorker.getSize();
+        return "Collection type: " + dispatcher.getCollectionWorker().getCollectionType() + "\nInitialization data: " + dispatcher.getCollectionWorker().getCreationDate() + "\nNumber of elements: " +  dispatcher.getCollectionWorker().getSize();
 
     }
 }

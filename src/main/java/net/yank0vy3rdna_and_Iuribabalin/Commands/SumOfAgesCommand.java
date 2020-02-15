@@ -8,9 +8,9 @@ import net.yank0vy3rdna_and_Iuribabalin.JSON.Workerable;
 
 public class SumOfAgesCommand implements Executable {
     @Override
-    public String exec(String command, Dispatcher dispatcher, StoredTypeReader reader, CollectionWorker collectionWorker, Workerable workerable,String filename) {
+    public String exec(String command, Dispatcher dispatcher) {
         long summ = 0;
-        for (StoredType element: collectionWorker.getSet()) {
+        for (StoredType element: dispatcher.getCollectionWorker().getSet()) {
             summ = summ + element.getAge();
         }
         return String.valueOf(summ);

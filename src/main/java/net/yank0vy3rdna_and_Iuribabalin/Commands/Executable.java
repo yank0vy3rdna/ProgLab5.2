@@ -8,5 +8,5 @@ import net.yank0vy3rdna_and_Iuribabalin.JSON.Workerable;
 
 public interface Executable{
     String syntax = "";
-    String exec(String command, Dispatcher dispatcher, StoredTypeReader reader, CollectionWorker collectionWorker, Workerable workerable,String filename);
+    String exec(String command, Dispatcher dispatcher);
 }

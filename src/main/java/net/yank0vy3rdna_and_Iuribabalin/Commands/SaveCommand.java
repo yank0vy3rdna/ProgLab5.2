@@ -8,8 +8,8 @@ import net.yank0vy3rdna_and_Iuribabalin.JSON.Workerable;
 public class SaveCommand implements Executable{
 
     @Override
-    public String exec(String command, Dispatcher dispatcher, StoredTypeReader reader, CollectionWorker collectionWorker, Workerable workerable,String filename) {
-        collectionWorker.save(filename,workerable);
+    public String exec(String command, Dispatcher dispatcher) {
+        dispatcher.getCollectionWorker().save(dispatcher.getFilename(),dispatcher.getWorker());
         return "Сохранено";
     }
 }

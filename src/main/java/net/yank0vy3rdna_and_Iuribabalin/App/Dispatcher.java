@@ -29,13 +29,24 @@ public class Dispatcher {
     public String dispatch(String line){
         if(commandsMap.get(line.split(" ")[0]) != null) {
             Executable command = commandsMap.get(line.split(" ")[0]);
-            return command.exec(line, this, reader,collectionWorker,worker,filename);
+            return command.exec(line, this);
         }
         return "";
     }
 
     public CollectionWorker getCollectionWorker() {
         return collectionWorker;
+    }
+
+    public Workerable getWorker(){
+        return worker;
+    }
+    public StoredTypeReader getReader(){
+        return reader;
+    }
+
+    public String getFilename(){
+        return filename;
     }
 
     boolean getEnabled(){
