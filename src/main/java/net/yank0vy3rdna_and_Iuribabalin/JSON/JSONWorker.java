@@ -20,9 +20,11 @@ public class JSONWorker implements Workerable {
 	public Object readValue(String json, Class cls){
 		return (gson).fromJson(json, cls);
 	}
+
 	public String writeValue(Object object){
 		return (new GsonBuilder().setPrettyPrinting().create()).toJson(object);
 	}
+
 	public Object load(String filename, Class cls){
 		try {
 			Object object;

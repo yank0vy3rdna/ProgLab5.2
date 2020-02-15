@@ -4,6 +4,7 @@ import net.yank0vy3rdna_and_Iuribabalin.App.CollectionWorker;
 import net.yank0vy3rdna_and_Iuribabalin.App.Dispatcher;
 import net.yank0vy3rdna_and_Iuribabalin.App.ObjectInterfaces.StoredTypeReader;
 import net.yank0vy3rdna_and_Iuribabalin.App.UI;
+import net.yank0vy3rdna_and_Iuribabalin.JSON.Workerable;
 
 public class HelpCommand implements Executable {
     private final UI ui;
@@ -13,7 +14,7 @@ public class HelpCommand implements Executable {
     }
 
     @Override
-    public String  exec(String command, Dispatcher dispatcher, StoredTypeReader reader, CollectionWorker collectionWorker) {
+    public String  exec(String command, Dispatcher dispatcher, StoredTypeReader reader, CollectionWorker collectionWorker, Workerable workerable) {
         return "help : вывести справку по доступным командам"+
                 "info : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)\n"+
                 "show : вывести в стандартный поток вывода все элементы коллекции в строковом представлении\n"+
