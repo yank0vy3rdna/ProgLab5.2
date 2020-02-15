@@ -103,10 +103,8 @@ public class Dragon implements StoredType {
     }
 
     @Override
-    public String toString(Workerable worker) {
-        return null;
-    }
-   /* public String toString(Workerable worker){
+
+    public String toString(Workerable worker){
         return worker.writeValue(this);
-    }*/
+    }
 }
