@@ -9,12 +9,15 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class CollectionWorker implements Storable {
+
     private Set<StoredType> collection;
     private Date creationDate;
+
     public CollectionWorker(Set<StoredType> list){
         collection = list;
         creationDate = new Date();
     }
+
     @Override
     public Set<StoredType> getSet() {
         return collection;
@@ -62,7 +65,9 @@ public class CollectionWorker implements Storable {
     public void save(String fileName, Workerable worker){
         worker.save(this, fileName);
     }
+
     @SuppressWarnings("unchecked")
+
     public void init(String fileName, Workerable worker) {
         CollectionWorker data = (CollectionWorker) worker.load(fileName, this.getClass());
         if (data == null){

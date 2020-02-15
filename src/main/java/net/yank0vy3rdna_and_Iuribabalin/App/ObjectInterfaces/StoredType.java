@@ -1,5 +1,6 @@
 package net.yank0vy3rdna_and_Iuribabalin.App.ObjectInterfaces;
 
+import net.yank0vy3rdna_and_Iuribabalin.Dragon.Coordinates;
 import net.yank0vy3rdna_and_Iuribabalin.JSON.Workerable;
 
 public interface StoredType extends Comparable<StoredType> {
@@ -9,4 +10,7 @@ public interface StoredType extends Comparable<StoredType> {
     String toString(Workerable worker);
 
     Long getAge();
+    String getName();
+    Coordinates getCoordinates();
+
 }
