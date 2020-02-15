@@ -1,15 +1,18 @@
 package net.yank0vy3rdna_and_Iuribabalin.Dragon;
+import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.yank0vy3rdna_and_Iuribabalin.App.ObjectInterfaces.StoredType;
 
+import java.lang.reflect.Type;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
 
 public class DragonDeserializer {
-    public static JsonDeserializer<StoredType> des = (jsonElement, type, jsonDeserializationContext) -> {
+    private static JsonDeserializer<StoredType> des = (JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) -> {
         JsonObject jsonObject = jsonElement.getAsJsonObject();
         long id = jsonObject.get("id").getAsLong();
         String name = jsonObject.get("name").getAsString();
@@ -70,4 +73,8 @@ public class DragonDeserializer {
         //Dragon(long id, String name, Coordinates coordinates, LocalDateTime creationDate, Long age, long weight, DragonType type, DragonCharacter character, Person killer)
         return (StoredType) new Dragon(id,name,coordinates,creationDate,age,weight,dragonType,dragonCharacter,killer);
     };
+
+    public static JsonDeserializer<StoredType> getDeserializer(){
+        return des;
+    }
 }

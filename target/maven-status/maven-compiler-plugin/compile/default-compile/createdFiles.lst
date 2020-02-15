@@ -3,6 +3,7 @@ net/yank0vy3rdna_and_Iuribabalin/App/CollectionWorker.class
 net/yank0vy3rdna_and_Iuribabalin/Dragon/DragonType.class
 net/yank0vy3rdna_and_Iuribabalin/Dragon/Dragon.class
 net/yank0vy3rdna_and_Iuribabalin/Commands/HelpCommand.class
+net/yank0vy3rdna_and_Iuribabalin/JSON/JSONWorker.class
 net/yank0vy3rdna_and_Iuribabalin/Dragon/DragonReader.class
 net/yank0vy3rdna_and_Iuribabalin/Dragon/Person.class
 net/yank0vy3rdna_and_Iuribabalin/App/UI.class
