@@ -43,6 +43,8 @@ public class Main
         commands.put("exit", new ExitCommand());
         commands.put("add", new AddCommand());
         commands.put("show", new ShowCommand());
+        commands.put("sum_of_age", new SumOfAgesCommand());
+        commands.put("clear", new ClearCommand());
 
         // Init reader
 
