@@ -16,30 +16,72 @@ public class DragonReader implements StoredTypeReader {
     public void setUI(UI ui) {
         this.ui = ui;
     }
-
     public StoredType create(){
+
         String name = ui.readField("dragonname");
+        double coordinatesx;
+        while (true) {
+            try {
+                coordinatesx = Double.parseDouble(ui.readField("coordinates.x"));
+                break;
+            }catch (NumberFormatException ex){
+                ui.print("Неверный формат числа");
+            }
+        }
+        float coordinatesy;
+        while (true) {
+            try {
+                coordinatesy = Float.parseFloat(ui.readField("coordinates.y"));
+                break;
+            }catch (NumberFormatException ex){
+                ui.print("Неверный формат числа");
+            }
+        }
 
-        Coordinates coordinates = new Coordinates(
-                Double.valueOf(ui.readField("coordinates.x")),
-                Float.parseFloat(ui.readField("coordinates.y"))
-        );
-
-        Long age = Long.parseLong(ui.readField("age"));
-
-        long weight = Long.parseLong(ui.readField("weight"));
+        Coordinates coordinates = new Coordinates(coordinatesx, coordinatesy);
+        long age;
+        while (true) {
+            try {
+                age = Long.parseLong(ui.readField("age"));
+                break;
+            }catch (NumberFormatException ex){
+                ui.print("Неверный формат числа");
+            }
+        }
+        long weight;
+        while (true) {
+            try {
+                weight = Long.parseLong(ui.readField("weight"));
+                break;
+            }catch (NumberFormatException ex){
+                ui.print("Неверный формат числа");
+            }
+        }
 
         DragonType dragonType;
+        while (true) {
+            try {
+                String dragonTypestr = ui.readField("type");
 
-        String dragonTypestr = ui.readField("type");
-
-        if (dragonTypestr.isEmpty()){
-            dragonType=null;
+                if (dragonTypestr.isEmpty()) {
+                    dragonType = null;
+                } else {
+                    dragonType = DragonType.valueOf(dragonTypestr);
+                }
+                break;
+            }catch (IllegalArgumentException ex){
+                ui.print("Такого типа драконов нет");
+            }
         }
-        else {
-            dragonType = DragonType.valueOf(dragonTypestr);
+        DragonCharacter dragonCharacter;
+        while (true) {
+            try{
+                dragonCharacter = DragonCharacter.valueOf(ui.readField("character"));
+                break;
+            }catch (IllegalArgumentException ex){
+                ui.print("Такого character драконов нет");
+            }
         }
-        DragonCharacter dragonCharacter = DragonCharacter.valueOf(ui.readField("character"));
         Person killer;
         String killername = ui.readField("killer.name");
 
@@ -49,31 +91,80 @@ public class DragonReader implements StoredTypeReader {
             SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
             Date birthday;
             Location location;
-            String birthdaystr = ui.readField("birthday(format: dd-MM-yyyy)");
-
-            if(!birthdaystr.isEmpty()) {
+            while (true) {
                 try {
-                    birthday = format.parse(birthdaystr);
-                } catch (ParseException e) {
-                    birthday=null;
+                    String birthdaystr = ui.readField("birthday(format: dd-MM-yyyy)");
+
+                    if (!birthdaystr.isEmpty()) {
+
+                        birthday = format.parse(birthdaystr);
+
+                    } else {
+                        birthday = null;
+                    }
+                    break;
+                } catch(ParseException e) {
+                    ui.print("Неверный формат даты");
                 }
-            }else {
-                birthday=null;
+            }
+            long killerheight;
+            while (true) {
+                try {
+                    killerheight = Long.parseLong(ui.readField("killer.height"));
+                    break;
+                }catch (NumberFormatException ex){
+                    ui.print("Неверный формат числа");
+                }
+            }
+            long killerweight;
+            while (true) {
+                try {
+                    killerweight = Long.parseLong(ui.readField("killer.weight"));
+                    break;
+                }catch (NumberFormatException ex){
+                    ui.print("Неверный формат числа");
+                }
             }
 
-            long killerheight = Long.parseLong(ui.readField("killer.height"));
-
-            Long killerweight = Long.parseLong(ui.readField("killer.weight"));
-
-            String locationx = ui.readField("locationx");
-
+            double locationxd = 0.;
+            String locationx;
+            while (true) {
+                locationx = ui.readField("locationx");
+                try {
+                    if (locationx.isEmpty())
+                        break;
+                    locationxd = Double.parseDouble(locationx);
+                    break;
+                }catch (NumberFormatException ex){
+                    ui.print("Неверный формат числа");
+                }
+            }
             if(locationx.isEmpty()){
                 location=null;
             }else {
-                String locationy = ui.readField("locationy");
-                String locationz = ui.readField("locationz");
+
+                float locationyd;
+                while (true){
+                    String locationy = ui.readField("locationy");
+                    try {
+                        locationyd = Float.parseFloat(locationy);
+                        break;
+                    }catch (NumberFormatException ex){
+                        ui.print("Неверный формат числа");
+                    }
+                }
+                long locationzd;
+                while(true){
+                    String locationz = ui.readField("locationz");
+                    try {
+                        locationzd = Long.parseLong(locationz);
+                        break;
+                    }catch (NumberFormatException ex){
+                        ui.print("Неверный формат числа");
+                    }
+                }
                 String locationname = ui.readField("locationname");
-                location = new Location(Double.parseDouble(locationx), Float.parseFloat(locationy),Long.parseLong(locationz),locationname);
+                location = new Location(locationxd, locationyd, locationzd, locationname);
             }
 
             killer = new Person( // Person(String name, Date birthday, long height, Long weight, Location location
@@ -85,7 +176,7 @@ public class DragonReader implements StoredTypeReader {
 
         }
         //Dragon(long id, String name, Coordinates coordinates, LocalDateTime creationDate, Long age, long weight, DragonType type, DragonCharacter character, Person killer)
-        return (StoredType) new Dragon(name,coordinates,age,weight,dragonType,dragonCharacter,killer);
+        return new Dragon(name,coordinates,age,weight,dragonType,dragonCharacter,killer);
     }
 
 
