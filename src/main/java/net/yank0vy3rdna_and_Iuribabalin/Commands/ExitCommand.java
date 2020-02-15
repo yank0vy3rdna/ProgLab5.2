@@ -7,7 +7,7 @@ import net.yank0vy3rdna_and_Iuribabalin.JSON.Workerable;
 
 public class ExitCommand implements Executable {
     @Override
-    public String exec(String command, Dispatcher dispatcher, StoredTypeReader reader, CollectionWorker collectionWorker, Workerable workerable) {
+    public String exec(String command, Dispatcher dispatcher, StoredTypeReader reader, CollectionWorker collectionWorker, Workerable workerable,String filename) {
         dispatcher.stop();
         return "Работа в консоли закончена";
     }
