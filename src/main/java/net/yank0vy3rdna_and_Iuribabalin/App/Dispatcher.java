@@ -3,6 +3,7 @@ package net.yank0vy3rdna_and_Iuribabalin.App;
 import net.yank0vy3rdna_and_Iuribabalin.App.ObjectInterfaces.StoredType;
 import net.yank0vy3rdna_and_Iuribabalin.App.ObjectInterfaces.StoredTypeReader;
 import net.yank0vy3rdna_and_Iuribabalin.Commands.Executable;
+import net.yank0vy3rdna_and_Iuribabalin.FileWork.WorkFile;
 import net.yank0vy3rdna_and_Iuribabalin.JSON.Workerable;
 
 import java.util.HashMap;
@@ -15,23 +16,25 @@ public class Dispatcher {
     private final StoredTypeReader reader;
     private final Workerable worker;
     private final String filename;
+    private final WorkFile fileReade;
     private boolean enabled = true;
 
-    public Dispatcher(HashMap<String, Executable> commands, Set<StoredType> list, StoredTypeReader reader, String filename, Workerable worker){
+    public Dispatcher(HashMap<String, Executable> commands, Set<StoredType> list, StoredTypeReader reader, String filename, Workerable worker, WorkFile fileRead){
         this.reader = reader;
         this.filename = filename;
         this.worker = worker;
+        this.fileReade = fileRead;
         collectionWorker = new CollectionWorker(list);
         collectionWorker.init(filename,worker);
         commandsMap.putAll(commands);
     }
 
     public String dispatch(String line){
-        if(commandsMap.get(line.split(" ")[0]) != null) {
+        if(commandsMap.get(line.split(" ")[0].toLowerCase()) != null) {
             Executable command = commandsMap.get(line.split(" ")[0]);
             return command.exec(line, this);
         }
-        return "";
+        return "No command";
     }
 
     public CollectionWorker getCollectionWorker() {
@@ -51,6 +54,10 @@ public class Dispatcher {
 
     boolean getEnabled(){
         return this.enabled;
+    }
+
+    public WorkFile getFileReade() {
+        return fileReade;
     }
 
     public void stop(){

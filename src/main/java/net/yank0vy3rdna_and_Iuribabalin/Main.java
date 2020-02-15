@@ -7,6 +7,8 @@ import net.yank0vy3rdna_and_Iuribabalin.App.ObjectInterfaces.StoredTypeReader;
 import net.yank0vy3rdna_and_Iuribabalin.Commands.*;
 import net.yank0vy3rdna_and_Iuribabalin.Dragon.DragonDeserializer;
 import net.yank0vy3rdna_and_Iuribabalin.Dragon.DragonReader;
+import net.yank0vy3rdna_and_Iuribabalin.FileWork.FileReader;
+import net.yank0vy3rdna_and_Iuribabalin.FileWork.WorkFile;
 import net.yank0vy3rdna_and_Iuribabalin.JSON.JSONWorker;
 import net.yank0vy3rdna_and_Iuribabalin.JSON.Workerable;
 
@@ -47,6 +49,10 @@ public class Main
         commands.put("clear", new ClearCommand());
         commands.put("info",new InfoCommand());
         commands.put("save",new SaveCommand());
+        commands.put("update", new UpdateCommand());
+        commands.put("remove_by_id", new RemoveCommand());
+        commands.put("execute_script", new ExecuteScriptCommand());
+        commands.put("count_less_than_age", new CountLessThanAgeCommand());
 
         // Init reader
 
@@ -56,7 +62,9 @@ public class Main
 
         Set<StoredType> set = new LinkedHashSet<>();
 
-        App app = new App(commands, set, reader ,filename, worker);
+        WorkFile fileRead = new FileReader();
+
+        App app = new App(commands, set, reader ,filename, worker, fileRead);
 
         app.start();
     }

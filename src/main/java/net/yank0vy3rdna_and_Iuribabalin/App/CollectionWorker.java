@@ -86,4 +86,15 @@ public class CollectionWorker implements Storable {
     public void insert(StoredType object) {
         collection.add(object);
     }
+
+    public int coutAge(int number){
+        int cnt = 0;
+
+        for (StoredType obj : collection)
+            if(obj.getAge()<number)
+                cnt++;
+
+        return cnt;
+    }
+
 }

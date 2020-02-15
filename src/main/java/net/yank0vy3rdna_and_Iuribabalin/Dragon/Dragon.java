@@ -88,6 +88,10 @@ public class Dragon implements StoredType {
         this.killer = killer;
     }
 
+    public void setId(long id){
+        this.id = id;
+    }
+
     @Override
     public int compareTo(StoredType obj) {
         if (obj instanceof Dragon){

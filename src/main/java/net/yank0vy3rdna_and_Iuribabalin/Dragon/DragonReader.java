@@ -16,7 +16,7 @@ public class DragonReader implements StoredTypeReader {
     public void setUI(UI ui) {
         this.ui = ui;
     }
-    public StoredType create(){
+    public StoredType create(String id){
 
         String name = ui.readField("dragonname");
         double coordinatesx;
@@ -175,8 +175,12 @@ public class DragonReader implements StoredTypeReader {
                     location);
 
         }
+        Dragon dragon = new Dragon(name,coordinates,age,weight,dragonType,dragonCharacter,killer);
+        if(!id.equals("null")){
+            dragon.setId(Long.parseLong(id));
+        }
         //Dragon(long id, String name, Coordinates coordinates, LocalDateTime creationDate, Long age, long weight, DragonType type, DragonCharacter character, Person killer)
-        return new Dragon(name,coordinates,age,weight,dragonType,dragonCharacter,killer);
+        return dragon;
     }
 
 

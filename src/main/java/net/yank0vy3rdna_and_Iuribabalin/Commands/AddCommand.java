@@ -8,7 +8,7 @@ import net.yank0vy3rdna_and_Iuribabalin.JSON.Workerable;
 public class AddCommand implements Executable{
     @Override
     public String exec(String command, Dispatcher dispatcher) {
-        dispatcher.getCollectionWorker().insert(dispatcher.getReader().create());
+        dispatcher.getCollectionWorker().insert(dispatcher.getReader().create("null"));
         return "Добавлено";
     }
 }

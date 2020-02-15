@@ -10,4 +10,7 @@ public interface StoredType extends Comparable<StoredType> {
 
     Long getAge();
 
+    long getId();
+
+    void setId(long id);
 }
