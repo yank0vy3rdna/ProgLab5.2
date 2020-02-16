@@ -50,7 +50,7 @@ public class Main
         commands.put("info",new InfoCommand());
         commands.put("save",new SaveCommand());
         commands.put("update", new UpdateCommand());
-        commands.put("remove_by_id", new RemoveByIdCommand());
+        commands.put("remove_by_id", new RemoveCommand());
         commands.put("execute_script", new ExecuteScriptCommand());
         commands.put("count_less_than_age", new CountLessThanAgeCommand());
 
