@@ -21,7 +21,7 @@ public class FileReader implements WorkFile {
 
             String line;
             while((line = bufferedReader.readLine()) != null) {
-                answ.append(line).append(" ");
+                answ.append(line).append(";");
             }
 
             bufferedReader.close(); // закрываем поток
