@@ -1,5 +1,0 @@
-help
-info
-remove_by_id 411186602455222863
-show
-exit
