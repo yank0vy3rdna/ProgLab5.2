@@ -10,6 +10,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+/***
+ * Dispatcher - class contains all objects and make them linked.
+ */
 public class Dispatcher {
     private final Map<String, Executable> commandsMap = new HashMap<>();
     private final CollectionWorker collectionWorker;

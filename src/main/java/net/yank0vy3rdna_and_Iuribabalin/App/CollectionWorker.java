@@ -8,6 +8,11 @@ import java.util.Date;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+
+/***
+ * CollectionWorker - class implements Storable.
+ * it contains collection and methods to work with it
+ */
 public class CollectionWorker implements Storable {
 
     private Set<StoredType> collection;
@@ -65,8 +70,6 @@ public class CollectionWorker implements Storable {
     public void save(String fileName, Workerable worker){
         worker.save(this, fileName);
     }
-
-    @SuppressWarnings("unchecked")
 
     public void init(String fileName, Workerable worker) {
         CollectionWorker data = (CollectionWorker) worker.load(fileName, this.getClass());

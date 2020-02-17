@@ -9,6 +9,9 @@ import net.yank0vy3rdna_and_Iuribabalin.JSON.Workerable;
 import java.util.HashMap;
 import java.util.Set;
 
+/***
+ * App class is an interface of all application. User will use that class as main.
+ */
 public class App {
 
     private final UI ui;
