@@ -1,4 +1,5 @@
-/data.json
+/resources/data.json
+/resources/DoCommands.txt
 /target/
 /target/classes/
 /target/generated-sources/

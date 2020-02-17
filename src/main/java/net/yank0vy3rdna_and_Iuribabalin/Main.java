@@ -24,9 +24,9 @@ public class Main
 
         String filename;
         if(args.length!=0){
-            filename = args[0];
+            filename = "resources/" + args[0];
         }else {
-            filename = "data.json";
+            filename = "resources/data.json";
         }
 
         // Init concrete deserializer
@@ -53,6 +53,10 @@ public class Main
         commands.put("remove_by_id", new RemoveCommand());
         commands.put("execute_script", new ExecuteScriptCommand());
         commands.put("count_less_than_age", new CountLessThanAgeCommand());
+        commands.put("remove_lower", new RemoveLoverCommand());
+        commands.put("remove_greater", new RemoveGreaterCommand());
+        commands.put("add_if_max", new AddIfMaxCommand());
+        commands.put("filter_contains_name", new FilterContainsNameCommand());
 
         // Init reader
 
