@@ -9,12 +9,19 @@ import net.yank0vy3rdna_and_Iuribabalin.JSON.Workerable;
 public class HelpCommand implements Executable {
     private final UI ui;
 
+    public static int helpCounter = 0;
+
     public HelpCommand(){
          ui = new UI();
     }
 
     @Override
     public String  exec(String command, Dispatcher dispatcher) {
+        helpCounter++;
+        if(helpCounter == 5){
+            helpCounter = 0;
+            return "ППС отменили,тебе ничего не поможет закртыть физику";
+        }
         return "help : вывести справку по доступным командам"+
                 "info : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)\n"+
                 "show : вывести в стандартный поток вывода все элементы коллекции в строковом представлении\n"+
