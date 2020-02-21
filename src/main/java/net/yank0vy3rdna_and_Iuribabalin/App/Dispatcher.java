@@ -14,6 +14,7 @@ import java.util.Set;
  * Dispatcher - class contains all objects and make them linked.
  */
 public class Dispatcher {
+    public int cntex = 0;
     private final Map<String, Executable> commandsMap = new HashMap<>();
     private final CollectionWorker collectionWorker;
     private final StoredTypeReader reader;
@@ -35,6 +36,8 @@ public class Dispatcher {
     public String dispatch(String line){
         if(commandsMap.get(line.split(" ")[0].toLowerCase()) != null) {
             Executable command = commandsMap.get(line.split(" ")[0]);
+            if(line.split(" ")[0].equals("execute_script"))
+                cntex++;
             return command.exec(line, this);
         }
         return "No command";

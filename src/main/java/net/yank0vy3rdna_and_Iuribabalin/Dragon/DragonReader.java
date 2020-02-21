@@ -61,7 +61,7 @@ public class DragonReader implements StoredTypeReader {
         DragonType dragonType;
         while (true) {
             try {
-                String dragonTypestr = ui.readField("type");
+                String dragonTypestr = ui.readField("type:\n" + DragonType.AIR + "\n" + DragonType.FIRE + "\n" + DragonType.UNDERGROUND + "\n" + DragonType.WATER + "\n" + "type");
 
                 if (dragonTypestr.isEmpty()) {
                     dragonType = null;
@@ -76,7 +76,7 @@ public class DragonReader implements StoredTypeReader {
         DragonCharacter dragonCharacter;
         while (true) {
             try{
-                dragonCharacter = DragonCharacter.valueOf(ui.readField("character"));
+                dragonCharacter = DragonCharacter.valueOf(ui.readField("character:\n" + DragonCharacter.CHAOTIC_EVIL + "\n" + DragonCharacter.CUNNING + "\n" + DragonCharacter.GOOD + "\n" + DragonCharacter.WISE + "\n" + "character"));
                 break;
             }catch (IllegalArgumentException ex){
                 ui.print("Такого character драконов нет");

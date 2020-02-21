@@ -18,7 +18,7 @@ public class UI {
      */
     public String readField(String fieldName){
         System.out.print("Введите значение поля "+fieldName+": ");
-        return in.nextLine();
+        return in.nextLine().toUpperCase();
     }
 
     /***
