@@ -72,12 +72,16 @@ public class CollectionWorker implements Storable {
     }
 
     public void init(String fileName, Workerable worker) {
-        CollectionWorker data = (CollectionWorker) worker.load(fileName, this.getClass());
-        if (data == null){
-            data = new CollectionWorker(collection);
+        try {
+            CollectionWorker data = (CollectionWorker) worker.load(fileName, this.getClass());
+            if (data == null) {
+                data = new CollectionWorker(collection);
+            }
+            collection = data.getSet();
+            creationDate = data.getCreationDate();
+        }catch (ClassCastException e){
+            System.out.println("Файл битый");
         }
-        collection = data.getSet();
-        creationDate = data.getCreationDate();
     }
 
     @Override

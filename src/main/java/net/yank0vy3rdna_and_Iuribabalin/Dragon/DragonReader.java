@@ -43,7 +43,10 @@ public class DragonReader implements StoredTypeReader {
         while (true) {
             try {
                 age = Long.parseLong(ui.readField("age"));
-                break;
+                if(age > 0)
+                    break;
+                else
+                    ui.print("Значение "+ "age" +" должно быть больше 0");
             }catch (NumberFormatException ex){
                 ui.print("Неверный формат числа");
             }
@@ -52,7 +55,10 @@ public class DragonReader implements StoredTypeReader {
         while (true) {
             try {
                 weight = Long.parseLong(ui.readField("weight"));
-                break;
+                if(weight > 0)
+                    break;
+                else
+                    ui.print("Значение "+ "weight" +" должно быть больше 0");
             }catch (NumberFormatException ex){
                 ui.print("Неверный формат числа");
             }
@@ -61,13 +67,7 @@ public class DragonReader implements StoredTypeReader {
         DragonType dragonType;
         while (true) {
             try {
-                String dragonTypestr = ui.readField("type:\n" + DragonType.AIR + "\n" + DragonType.FIRE + "\n" + DragonType.UNDERGROUND + "\n" + DragonType.WATER + "\n" + "type");
-
-                if (dragonTypestr.isEmpty()) {
-                    dragonType = null;
-                } else {
-                    dragonType = DragonType.valueOf(dragonTypestr);
-                }
+                dragonType = DragonType.valueOf(ui.readField("type:\n" + DragonType.AIR + "\n" + DragonType.FIRE + "\n" + DragonType.UNDERGROUND + "\n" + DragonType.WATER + "\n" + "type"));
                 break;
             }catch (IllegalArgumentException ex){
                 ui.print("Такого типа драконов нет");
@@ -111,7 +111,10 @@ public class DragonReader implements StoredTypeReader {
             while (true) {
                 try {
                     killerheight = Long.parseLong(ui.readField("killer.height"));
-                    break;
+                    if(killerheight > 0)
+                        break;
+                    else
+                        ui.print("Значение "+ "killerheight" +" должно быть больше 0");
                 }catch (NumberFormatException ex){
                     ui.print("Неверный формат числа");
                 }
@@ -120,7 +123,10 @@ public class DragonReader implements StoredTypeReader {
             while (true) {
                 try {
                     killerweight = Long.parseLong(ui.readField("killer.weight"));
-                    break;
+                    if(killerweight > 0)
+                        break;
+                    else
+                        ui.print("Значение "+ "weight" +" должно быть больше 0");
                 }catch (NumberFormatException ex){
                     ui.print("Неверный формат числа");
                 }

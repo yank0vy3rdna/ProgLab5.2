@@ -18,7 +18,11 @@ public class JSONWorker implements Workerable {
 
 	@SuppressWarnings("unchecked")
 	public Object readValue(String json, Class cls){
-		return (gson).fromJson(json, cls);
+		try {
+			return (gson).fromJson(json, cls);
+		}catch (NullPointerException e){
+			return "Файл битый";
+		}
 	}
 
 	public String writeValue(Object object){
@@ -46,6 +50,9 @@ public class JSONWorker implements Workerable {
 		catch (IOException e)
 		{
 			e.printStackTrace();
+		}
+		catch (ClassCastException e){
+			return "Файл битый";
 		}
 		return null;
 	}
