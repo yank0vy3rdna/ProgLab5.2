@@ -51,9 +51,9 @@ public class JSONWorker implements Workerable {
 		{
 			e.printStackTrace();
 		}
-		catch (ClassCastException e){
-			return "Файл битый";
-		}
+		//catch (ClassCastException e){
+			//return "Файл битый";
+		//}
 		return null;
 	}
 

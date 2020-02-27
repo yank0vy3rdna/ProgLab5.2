@@ -3,7 +3,8 @@ package net.yank0vy3rdna_and_Iuribabalin.FileWork;
 import net.yank0vy3rdna_and_Iuribabalin.App.UI;
 
 import java.io.BufferedReader;
-import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 
 public class FileReader implements WorkFile {
 
@@ -13,18 +14,20 @@ public class FileReader implements WorkFile {
 
     @Override
     public String readFile(String filename) {
+
         StringBuilder answ = new StringBuilder();
+
         try {
-            File file = new File("resources/" + filename);
-            java.io.FileReader fileReader = new java.io.FileReader(file); // поток, который подключается к текстовому файлу
-            BufferedReader bufferedReader = new BufferedReader(fileReader); // соединяем FileReader с BufferedReader
+
+            BufferedReader reader = new BufferedReader((new InputStreamReader(new FileInputStream(filename))));
 
             String line;
-            while((line = bufferedReader.readLine()) != null) {
+
+            while((line = reader.readLine()) != null) {
                 answ.append(line).append(";");
             }
 
-            bufferedReader.close(); // закрываем поток
+            reader.close(); // закрываем поток
         } catch (Exception e) {
             return "Filename is wrong";
         }

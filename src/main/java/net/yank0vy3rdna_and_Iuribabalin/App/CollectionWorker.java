@@ -2,10 +2,10 @@ package net.yank0vy3rdna_and_Iuribabalin.App;
 
 import net.yank0vy3rdna_and_Iuribabalin.App.ObjectInterfaces.Storable;
 import net.yank0vy3rdna_and_Iuribabalin.App.ObjectInterfaces.StoredType;
+import net.yank0vy3rdna_and_Iuribabalin.Dragon.Dragon;
 import net.yank0vy3rdna_and_Iuribabalin.JSON.Workerable;
 
-import java.util.Date;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -104,4 +104,14 @@ public class CollectionWorker implements Storable {
         return cnt;
     }
 
+    @Override
+    public void sortCollection() {
+        Comparator<Dragon> comp = new DragonNameComparator().thenComparing(new DragonAgeComporator());
+        TreeSet<Dragon> dragonTreeSet = new TreeSet(comp);
+        for(StoredType e: this.collection){
+            dragonTreeSet.add((Dragon) e);
+        }
+        clear();
+        collection.addAll(dragonTreeSet);
+    }
 }
