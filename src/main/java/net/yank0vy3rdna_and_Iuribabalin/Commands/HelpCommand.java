@@ -7,13 +7,7 @@ import net.yank0vy3rdna_and_Iuribabalin.App.UI;
 import net.yank0vy3rdna_and_Iuribabalin.JSON.Workerable;
 
 public class HelpCommand implements Executable {
-    private final UI ui;
-
     public static int helpCounter = 0;
-
-    public HelpCommand(){
-         ui = new UI();
-    }
 
     @Override
     public String  exec(String command, Dispatcher dispatcher) {
