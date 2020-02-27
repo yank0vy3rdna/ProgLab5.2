@@ -3,6 +3,9 @@ package net.yank0vy3rdna_and_Iuribabalin.Commands;
 import net.yank0vy3rdna_and_Iuribabalin.App.Dispatcher;
 import net.yank0vy3rdna_and_Iuribabalin.App.ObjectInterfaces.StoredType;
 
+/***
+ * Команда добавления при условии, что элемент больше всех тех, что уже находятся в коллекции
+ */
 public class AddIfMaxCommand  implements Executable {
     @Override
     public String exec(String command, Dispatcher dispatcher) {

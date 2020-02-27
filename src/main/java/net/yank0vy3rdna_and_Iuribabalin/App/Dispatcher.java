@@ -20,14 +20,14 @@ public class Dispatcher {
     private final StoredTypeReader reader;
     private final Workerable worker;
     private final String filename;
-    private final WorkFile fileReade;
+    private final WorkFile fileReader;
     private boolean enabled = true;
 
     public Dispatcher(HashMap<String, Executable> commands, Set<StoredType> list, StoredTypeReader reader, String filename, Workerable worker, WorkFile fileRead){
         this.reader = reader;
         this.filename = filename;
         this.worker = worker;
-        this.fileReade = fileRead;
+        this.fileReader = fileRead;
         collectionWorker = new CollectionWorker(list);
         collectionWorker.init(filename,worker);
         commandsMap.putAll(commands);
@@ -62,8 +62,8 @@ public class Dispatcher {
         return this.enabled;
     }
 
-    public WorkFile getFileReade() {
-        return fileReade;
+    public WorkFile getFileReader() {
+        return fileReader;
     }
 
     public void stop(){

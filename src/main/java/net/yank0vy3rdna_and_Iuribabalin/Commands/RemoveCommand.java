@@ -4,6 +4,9 @@ import net.yank0vy3rdna_and_Iuribabalin.App.Dispatcher;
 import net.yank0vy3rdna_and_Iuribabalin.App.ObjectInterfaces.StoredType;
 import net.yank0vy3rdna_and_Iuribabalin.App.UI;
 
+/**
+ * Команда, реализующая удаление элемента из коллекции по его id
+ */
 public class RemoveCommand implements Executable{
     @Override
     public String exec(String command, Dispatcher dispatcher) {

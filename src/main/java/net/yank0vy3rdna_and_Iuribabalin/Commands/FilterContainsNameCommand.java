@@ -5,6 +5,9 @@ import net.yank0vy3rdna_and_Iuribabalin.App.ObjectInterfaces.StoredType;
 
 import java.util.stream.Collectors;
 
+/**
+ * Команда, выводящая те элементы, поле name которых содержит данную строку
+ */
 public class FilterContainsNameCommand implements Executable{
     @Override
     public String exec(String command, Dispatcher dispatcher) {

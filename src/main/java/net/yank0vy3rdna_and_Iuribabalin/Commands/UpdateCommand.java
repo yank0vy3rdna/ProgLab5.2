@@ -1,17 +1,15 @@
 package net.yank0vy3rdna_and_Iuribabalin.Commands;
 
 import net.yank0vy3rdna_and_Iuribabalin.App.Dispatcher;
-import net.yank0vy3rdna_and_Iuribabalin.App.ObjectInterfaces.Storable;
 import net.yank0vy3rdna_and_Iuribabalin.App.ObjectInterfaces.StoredType;
-import net.yank0vy3rdna_and_Iuribabalin.App.ObjectInterfaces.StoredTypeReader;
-import net.yank0vy3rdna_and_Iuribabalin.App.UI;
 
+/**
+ * Команда, заменяющая значение элемента с данным id на данное
+ */
 public class UpdateCommand implements Executable {
 
     @Override
     public String exec(String command, Dispatcher dispatcher) {
-        UI ui = new UI();
-        dispatcher.getReader().setUI(new UI());
         try {
             String[] splitted = command.split(" ");
             for (StoredType element : dispatcher.getCollectionWorker().getSet()) {
@@ -22,7 +20,7 @@ public class UpdateCommand implements Executable {
                 }
             }
         }catch (ArrayIndexOutOfBoundsException e){
-            return "Id do not search!!!";
+            return "Id wasn't found!!!";
         }
         return "Id is not valid";
     }

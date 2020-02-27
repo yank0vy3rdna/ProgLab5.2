@@ -20,6 +20,7 @@ public class App {
     public App(HashMap<String, Executable> commandsMap, Set<StoredType> set, StoredTypeReader reader, String filename, Workerable worker, WorkFile fileRead){
         ui = new UI();
         reader.setUI(ui);
+        fileRead.setUI(ui);
         dispatcher = new Dispatcher(commandsMap, set, reader, filename, worker, fileRead);
     }
 

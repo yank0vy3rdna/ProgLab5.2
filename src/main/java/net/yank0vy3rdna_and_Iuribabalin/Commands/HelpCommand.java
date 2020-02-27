@@ -1,26 +1,19 @@
 package net.yank0vy3rdna_and_Iuribabalin.Commands;
 
-import net.yank0vy3rdna_and_Iuribabalin.App.CollectionWorker;
 import net.yank0vy3rdna_and_Iuribabalin.App.Dispatcher;
-import net.yank0vy3rdna_and_Iuribabalin.App.ObjectInterfaces.StoredTypeReader;
-import net.yank0vy3rdna_and_Iuribabalin.App.UI;
-import net.yank0vy3rdna_and_Iuribabalin.JSON.Workerable;
 
+/**
+ * Команда, выводящая инструкцию ко всем командам
+ */
 public class HelpCommand implements Executable {
-    private final UI ui;
 
     public static int helpCounter = 0;
-
-    public HelpCommand(){
-         ui = new UI();
-    }
-
     @Override
     public String  exec(String command, Dispatcher dispatcher) {
         helpCounter++;
         if(helpCounter == 5){
             helpCounter = 0;
-            return "ППС отменили,тебе ничего не поможет закртыть физику";
+            return "ППС отменили,тебе ничего не поможет закрыть физику";
         }
         return "help : вывести справку по доступным командам"+
                 "info : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)\n"+
