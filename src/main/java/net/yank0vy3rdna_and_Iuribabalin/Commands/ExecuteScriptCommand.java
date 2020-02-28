@@ -13,7 +13,7 @@ import java.util.Scanner;
  * Команда, выполняющая скрипт
  */
 public class ExecuteScriptCommand implements Executable{
-    static List<String> files =  new ArrayList<String>();
+    static List<String> files = new ArrayList<>();
     @Override
     public String exec(String command, Dispatcher dispatcher) throws IOException {
 
@@ -35,13 +35,13 @@ public class ExecuteScriptCommand implements Executable{
                 while (dispatcher.getEnabled()) {
                     String line = ui.getNextCommand();
                     if (line.indexOf("execute_script") == 0) {
-                        if (files.contains(line)) {
+                        if (files.contains(line.trim().split(" ")[1])) {
                             toPrint.append("Рекурсия");
                         } else {
-                            files.add(line);
+                            files.add(line.trim().split(" ")[1]);
+                            ui.print(dispatcher.dispatch(line.trim()));
                         }
                     }
-                    ui.print(dispatcher.dispatch(line.trim()));
                 }
             }catch (NoSuchElementException ex){
                 toPrint.append("\nCompleted read");
