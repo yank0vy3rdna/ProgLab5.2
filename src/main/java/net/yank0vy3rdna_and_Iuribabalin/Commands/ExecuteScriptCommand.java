@@ -1,10 +1,12 @@
 package net.yank0vy3rdna_and_Iuribabalin.Commands;
 
 import net.yank0vy3rdna_and_Iuribabalin.App.Dispatcher;
+import net.yank0vy3rdna_and_Iuribabalin.App.UI;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Команда, выполняющая скрипт
@@ -17,34 +19,28 @@ public class ExecuteScriptCommand implements Executable{
         String[] sorted = command.split(" ");
 
         StringBuilder toPrint = new StringBuilder();
-        String line;
-
+        Scanner scanner;
         try {
-            line = dispatcher.getFileReader().readFile("resources/" + sorted[1]);
+             scanner = dispatcher.getFileReader().getScanner("resources/" + sorted[1]);
         }catch (IOException e){
-            line = dispatcher.getFileReader().readFile("resources/" + sorted[1] + ".txt");
+            scanner = dispatcher.getFileReader().getScanner("resources/" + sorted[1] + ".txt");
         }
-
-
+        UI ui = new UI();
+        ui.setScanner(scanner);
         try {
-
-            sorted = line.split(";");
-
-            for (String e : sorted) {
-                if(e.indexOf("execute_script") == 0) {
-                    if(files.contains(e)){
+            while (dispatcher.getEnabled()){
+                String line = ui.getNextCommand();
+                if(line.indexOf("execute_script") == 0) {
+                    if(files.contains(line)){
                         toPrint.append("Рекурсия");
                     }else{
-                        files.add(e);
-                        toPrint.append(dispatcher.dispatch(e.trim()));
+                        files.add(line);
                     }
-                }else {
-                    toPrint.append("\n").append(dispatcher.dispatch(e.trim())).append("\n");
                 }
+                ui.print(dispatcher.dispatch(line.trim()));
             }
-
             toPrint.append("\nCompleted read");
-
+            ui.setScanner(new Scanner(System.in));
             return toPrint.toString();
 
         }catch (ArrayIndexOutOfBoundsException e){

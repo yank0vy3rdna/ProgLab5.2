@@ -57,7 +57,7 @@ public class Dispatcher {
         return filename;
     }
 
-    boolean getEnabled(){
+    public boolean getEnabled(){
         return this.enabled;
     }
 

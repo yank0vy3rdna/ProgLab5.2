@@ -5,8 +5,10 @@ import java.util.Scanner;
  * UI - class working with console
  */
 public class UI {
-    private final Scanner in;
-
+    private Scanner in;
+    public void setScanner(Scanner scanner){
+        in = scanner;
+    }
     public UI(){
         in = new Scanner(System.in);
     }
