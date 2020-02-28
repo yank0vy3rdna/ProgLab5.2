@@ -8,7 +8,10 @@ import net.yank0vy3rdna_and_Iuribabalin.App.Dispatcher;
 public class AddCommand implements Executable{
     @Override
     public String exec(String command, Dispatcher dispatcher) {
-        dispatcher.getCollectionWorker().insert(dispatcher.getReader().create("null"));
-        return "Добавлено";
+        if(dispatcher.getCollectionWorker().insert(dispatcher.getReader().create("null"))) {
+            return "Добавлено";
+        }else{
+            return "Такой элемент уже есть";
+        }
     }
 }

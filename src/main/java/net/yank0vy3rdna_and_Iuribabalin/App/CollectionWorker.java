@@ -93,8 +93,16 @@ public class CollectionWorker implements Storable {
     }
 
     @Override
-    public void insert(StoredType object) {
+    public boolean insert(StoredType object) {
+        boolean flag = false;
+        for (StoredType obj: collection){
+            if(object.equals(obj)){
+                flag = true;
+                break;
+            }
+        }
         collection.add(object);
+        return !flag;
 
     }
 
@@ -116,5 +124,9 @@ public class CollectionWorker implements Storable {
         }
         clear();
         collection.addAll(dragonTreeSet);
+    }
+
+    private boolean equals(StoredType o1, StoredType o2) {
+        return o1.equals(o2);
     }
 }

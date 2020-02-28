@@ -17,7 +17,7 @@ public interface Storable {
     boolean ifMax(StoredType object);
     void init(String fileName, Workerable worker);
     void removeLower(StoredType object);
-    void insert(StoredType hum);
+    boolean insert(StoredType hum);
     int coutAge(int number);
     void sortCollection();
 }
