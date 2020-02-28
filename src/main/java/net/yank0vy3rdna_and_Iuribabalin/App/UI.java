@@ -6,11 +6,18 @@ import java.util.Scanner;
  */
 public class UI {
     private Scanner in;
+    private boolean prints;
     public void setScanner(Scanner scanner){
         in = scanner;
     }
+
+    public void setPrints(boolean prints) {
+        this.prints = prints;
+    }
+
     public UI(){
         in = new Scanner(System.in);
+        prints = true;
     }
 
     /***
@@ -19,7 +26,9 @@ public class UI {
      * @return readed line
      */
     public String readField(String fieldName){
-        System.out.print("Введите значение поля "+fieldName+": ");
+        if (prints) {
+            System.out.print("Введите значение поля " + fieldName + ": ");
+        }
         return in.nextLine().toUpperCase();
     }
 
@@ -28,7 +37,9 @@ public class UI {
      * @return line
      */
     public String getNextCommand(){
-        System.out.print(">> ");
+        if (prints) {
+            System.out.print(">> ");
+        }
         return in.nextLine();
     }
 
