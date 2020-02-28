@@ -4,7 +4,7 @@ import net.yank0vy3rdna_and_Iuribabalin.Dragon.Dragon;
 
 import java.util.Comparator;
 
-public class DragonAgeComporator implements Comparator<Dragon> {
+public class DragonAgeComparator implements Comparator<Dragon> {
     @Override
     public int compare(Dragon d1, Dragon d2) {
         if(d1.getAge() > d2.getAge())
