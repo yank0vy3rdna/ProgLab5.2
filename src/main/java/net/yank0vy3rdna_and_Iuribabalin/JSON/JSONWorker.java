@@ -49,7 +49,8 @@ public class JSONWorker implements Workerable {
 		}
 		catch (IOException e)
 		{
-			e.printStackTrace();
+			//ex.printStackTrace();
+			System.out.println("Дяденька вы дурак");
 		}
 		//catch (ClassCastException e){
 			//return "Файл битый";
@@ -65,9 +66,11 @@ public class JSONWorker implements Workerable {
 			byte[] buffer = json.getBytes();
 			file.write(buffer);
 			file.close();
-		}
-		catch(IOException ex){
-			ex.printStackTrace();
+		} catch (FileNotFoundException ex){
+			System.out.println("Ошибка при работе с файлом: " +ex.getLocalizedMessage());
+		} catch(IOException ex){
+			//ex.printStackTrace();
+			System.out.println("Дяденька вы дурак");
 		}
 	}
 }
