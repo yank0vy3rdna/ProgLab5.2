@@ -92,6 +92,10 @@ public class Dragon implements StoredType {
         this.id = id;
     }
 
+    public String getAll(){
+        return this.name+" "+this.age+" "+this.character+" "+this.coordinates.getX()+" "+this.coordinates.getY()+" "+killer.getName()+" "+killer.getBirthday() +" "+ killer.getHeight() +" "+ killer.getLocation()+" "+killer.getWeight()+" "+this.type+ " " +this.weight;
+    }
+
     @Override
     public int compareTo(StoredType obj) {
         if (obj instanceof Dragon){

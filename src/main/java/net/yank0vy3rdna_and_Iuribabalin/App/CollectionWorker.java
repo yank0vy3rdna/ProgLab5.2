@@ -95,6 +95,7 @@ public class CollectionWorker implements Storable {
     @Override
     public void insert(StoredType object) {
         collection.add(object);
+
     }
 
     public int coutAge(int number){
@@ -103,7 +104,6 @@ public class CollectionWorker implements Storable {
         for (StoredType obj : collection)
             if(obj.getAge()<number)
                 cnt++;
-
         return cnt;
     }
 
