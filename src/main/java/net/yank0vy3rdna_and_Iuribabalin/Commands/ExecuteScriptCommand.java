@@ -3,11 +3,14 @@ package net.yank0vy3rdna_and_Iuribabalin.Commands;
 import net.yank0vy3rdna_and_Iuribabalin.App.Dispatcher;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Команда, выполняющая скрипт
  */
 public class ExecuteScriptCommand implements Executable{
+    static List<String> files =  new ArrayList<String>();
     @Override
     public String exec(String command, Dispatcher dispatcher) throws IOException {
 
@@ -28,10 +31,15 @@ public class ExecuteScriptCommand implements Executable{
             sorted = line.split(";");
 
             for (String e : sorted) {
-                if(e.indexOf("execute_script") == 0)
-                    toPrint.append("\nЯ не одобряю вызов других файлов в скрипте, это может создать рекурсию\n");
-                else {
-                    toPrint.append(dispatcher.dispatch(e.trim()));
+                if(e.indexOf("execute_script") == 0) {
+                    if(files.contains(e)){
+                        toPrint.append("Рекурсия");
+                    }else{
+                        files.add(e);
+                        toPrint.append(dispatcher.dispatch(e.trim()));
+                    }
+                }else {
+                    toPrint.append("\n").append(dispatcher.dispatch(e.trim())).append("\n");
                 }
             }
 
