@@ -6,6 +6,7 @@ import net.yank0vy3rdna_and_Iuribabalin.App.UI;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
@@ -27,20 +28,27 @@ public class ExecuteScriptCommand implements Executable{
         }
         UI ui = new UI();
         ui.setScanner(scanner);
+        ui.setPrints(false);
+        dispatcher.getReader().setUI(ui);
         try {
-            while (dispatcher.getEnabled()){
-                String line = ui.getNextCommand();
-                if(line.indexOf("execute_script") == 0) {
-                    if(files.contains(line)){
-                        toPrint.append("Рекурсия");
-                    }else{
-                        files.add(line);
+            try {
+                while (dispatcher.getEnabled()) {
+                    String line = ui.getNextCommand();
+                    if (line.indexOf("execute_script") == 0) {
+                        if (files.contains(line)) {
+                            toPrint.append("Рекурсия");
+                        } else {
+                            files.add(line);
+                        }
                     }
+                    ui.print(dispatcher.dispatch(line.trim()));
                 }
-                ui.print(dispatcher.dispatch(line.trim()));
+            }catch (NoSuchElementException ex){
+                toPrint.append("\nCompleted read");
+                ui.setScanner(new Scanner(System.in));
+                ui.setPrints(true);
+                dispatcher.getReader().setUI(ui);
             }
-            toPrint.append("\nCompleted read");
-            ui.setScanner(new Scanner(System.in));
             return toPrint.toString();
 
         }catch (ArrayIndexOutOfBoundsException e){
