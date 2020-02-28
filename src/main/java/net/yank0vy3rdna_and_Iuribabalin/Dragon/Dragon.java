@@ -93,13 +93,8 @@ public class Dragon implements StoredType {
     }
 
     @Override
-    public String getAll(){
-        return this.name+" "+this.age+" "+this.character+" "+this.coordinates.getX()+" "+this.coordinates.getY()+" "+killer.getName()+" "+killer.getBirthday() +" "+ killer.getHeight() +" "+ killer.getLocation()+" "+killer.getWeight()+" "+this.type+ " " +this.weight;
-    }
-
-    @Override
     public boolean equals(StoredType obj) {
-        return getAll().equals(obj.getAll());
+        return getName().equals(obj.getName()) || getAge().equals(obj.getAge()) || getWeight() == obj.getWeight() || getCharacter().equals(obj.getCharacter()) || getType().equals(obj.getType()) || getCoordinates().equals(obj.getCoordinates());
     }
 
     @Override

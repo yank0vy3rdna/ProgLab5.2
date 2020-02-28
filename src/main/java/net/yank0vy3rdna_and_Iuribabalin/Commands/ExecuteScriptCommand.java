@@ -41,6 +41,8 @@ public class ExecuteScriptCommand implements Executable{
                             files.add(line.trim().split(" ")[1]);
                             ui.print(dispatcher.dispatch(line.trim()));
                         }
+                    }else{
+                        ui.print(dispatcher.dispatch(line.trim()));
                     }
                 }
             }catch (NoSuchElementException ex){

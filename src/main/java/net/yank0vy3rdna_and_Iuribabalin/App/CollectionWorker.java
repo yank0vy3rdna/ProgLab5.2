@@ -5,10 +5,7 @@ import net.yank0vy3rdna_and_Iuribabalin.App.ObjectInterfaces.StoredType;
 import net.yank0vy3rdna_and_Iuribabalin.Dragon.Dragon;
 import net.yank0vy3rdna_and_Iuribabalin.JSON.Workerable;
 
-import java.util.Comparator;
-import java.util.Date;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -124,9 +121,5 @@ public class CollectionWorker implements Storable {
         }
         clear();
         collection.addAll(dragonTreeSet);
-    }
-
-    private boolean equals(StoredType o1, StoredType o2) {
-        return o1.equals(o2);
     }
 }
