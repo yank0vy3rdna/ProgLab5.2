@@ -6,6 +6,7 @@ import net.yank0vy3rdna_and_Iuribabalin.Commands.Executable;
 import net.yank0vy3rdna_and_Iuribabalin.FileWork.WorkFile;
 import net.yank0vy3rdna_and_Iuribabalin.JSON.Workerable;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -32,7 +33,7 @@ public class Dispatcher {
         commandsMap.putAll(commands);
     }
 
-    public String dispatch(String line){
+    public String dispatch(String line) throws IOException {
         if(commandsMap.get(line.split(" ")[0].toLowerCase()) != null) {
             Executable command = commandsMap.get(line.split(" ")[0]);
             collectionWorker.sortCollection();

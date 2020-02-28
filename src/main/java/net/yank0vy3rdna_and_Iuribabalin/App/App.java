@@ -6,6 +6,7 @@ import net.yank0vy3rdna_and_Iuribabalin.Commands.Executable;
 import net.yank0vy3rdna_and_Iuribabalin.FileWork.WorkFile;
 import net.yank0vy3rdna_and_Iuribabalin.JSON.Workerable;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -25,7 +26,7 @@ public class App {
     }
 
 
-    public void start(){
+    public void start() throws IOException {
         while (dispatcher.getEnabled()){
             String line = ui.getNextCommand();
             ui.print(dispatcher.dispatch(line.trim()));

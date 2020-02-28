@@ -4,6 +4,7 @@ import net.yank0vy3rdna_and_Iuribabalin.App.UI;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class FileReader implements WorkFile {
@@ -13,24 +14,20 @@ public class FileReader implements WorkFile {
     public FileReader(){}
 
     @Override
-    public String readFile(String filename) {
+    public String readFile(String filename) throws IOException {
 
         StringBuilder answ = new StringBuilder();
+        String line;
 
-        try {
 
-            BufferedReader reader = new BufferedReader((new InputStreamReader(new FileInputStream(filename))));
+        BufferedReader reader = new BufferedReader((new InputStreamReader(new FileInputStream(filename))));
 
-            String line;
-
-            while((line = reader.readLine()) != null) {
-                answ.append(line).append(";");
-            }
-
-            reader.close(); // закрываем поток
-        } catch (Exception e) {
-            return "Filename is wrong";
+        while((line = reader.readLine()) != null) {
+            answ.append(line).append(";");
         }
+
+        reader.close(); // закрываем поток
+
         return answ.toString();
     }
 

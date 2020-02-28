@@ -12,14 +12,14 @@ import net.yank0vy3rdna_and_Iuribabalin.FileWork.WorkFile;
 import net.yank0vy3rdna_and_Iuribabalin.JSON.JSONWorker;
 import net.yank0vy3rdna_and_Iuribabalin.JSON.Workerable;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Main
 {
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ) throws IOException {
         //Json file name finding
 
         String filename;
