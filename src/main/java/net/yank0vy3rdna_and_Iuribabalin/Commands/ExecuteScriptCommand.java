@@ -23,8 +23,12 @@ public class ExecuteScriptCommand implements Executable{
         Scanner scanner;
         try {
              scanner = dispatcher.getFileReader().getScanner("resources/" + sorted[1]);
-        }catch (IOException e){
-            scanner = dispatcher.getFileReader().getScanner("resources/" + sorted[1] + ".txt");
+        } catch (IOException | ArrayIndexOutOfBoundsException e){
+            try {
+                scanner = dispatcher.getFileReader().getScanner("resources/" + sorted[1] + ".txt");
+            }catch (IOException | ArrayIndexOutOfBoundsException ex){
+                return "No filename";
+            }
         }
         UI ui = new UI();
         ui.setScanner(scanner);
@@ -53,7 +57,7 @@ public class ExecuteScriptCommand implements Executable{
             }
             return toPrint.toString();
 
-        }catch (ArrayIndexOutOfBoundsException e){
+        }catch (ArrayIndexOutOfBoundsException ex){
             return "No filename";
         }
     }

@@ -15,9 +15,6 @@ public class FileReader implements WorkFile {
     @Override
     public Scanner getScanner(String filename) throws IOException {
 
-        StringBuilder answ = new StringBuilder();
-        String line;
-
 
         BufferedReader reader = new BufferedReader((new InputStreamReader(new FileInputStream(filename))));
         char[] charBuffer = new char[8 * 1024];
@@ -32,23 +29,6 @@ public class FileReader implements WorkFile {
 
     }
 
-    @Override
-    public String readFile(String filename) throws IOException {
-
-        StringBuilder answ = new StringBuilder();
-        String line;
-
-
-        BufferedReader reader = new BufferedReader((new InputStreamReader(new FileInputStream(filename))));
-
-        while((line = reader.readLine()) != null) {
-            answ.append(line).append(";");
-        }
-
-        reader.close(); // закрываем поток
-
-        return answ.toString();
-    }
 
     @Override
     public void setUI(UI ui) {

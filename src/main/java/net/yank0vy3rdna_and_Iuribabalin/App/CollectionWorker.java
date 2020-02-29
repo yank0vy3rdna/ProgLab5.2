@@ -99,8 +99,8 @@ public class CollectionWorker implements Storable {
             }
         }
         collection.add(object);
-        return !flag;
 
+        return !flag;
     }
 
     public int coutAge(int number){

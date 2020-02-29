@@ -38,8 +38,9 @@ public class Dispatcher {
             Executable command = commandsMap.get(line.split(" ")[0]);
             collectionWorker.sortCollection();
             return command.exec(line, this);
-        }
-        return "No command";
+        }else if (!line.split(" ")[0].toLowerCase().equals(""))
+            return "No command";
+        return null;
     }
 
     public CollectionWorker getCollectionWorker() {

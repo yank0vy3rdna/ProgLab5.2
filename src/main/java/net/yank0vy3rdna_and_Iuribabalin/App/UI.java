@@ -48,7 +48,10 @@ public class UI {
      * @param string what we want to print
      */
     public void print(String string){
-        System.out.println(string);
+        if(string == null)
+            System.out.print("");
+        else
+            System.out.println(string);
     }
 
 }

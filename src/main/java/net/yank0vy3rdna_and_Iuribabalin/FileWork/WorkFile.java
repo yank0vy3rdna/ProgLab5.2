@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public interface WorkFile {
-    String readFile(String filename) throws IOException;
     Scanner getScanner(String filename) throws IOException;
     void setUI(UI ui);
 }
