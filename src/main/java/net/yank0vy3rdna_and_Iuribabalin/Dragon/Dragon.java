@@ -92,15 +92,11 @@ public class Dragon implements StoredType {
         this.id = id;
     }
 
-    //Сравнение по параметрам Имени, Возраста, дня рождения,веса , характера и типа, ЭТОГО ДОСТАТОЧНО, чтобы определить одинаковых драконов, также как ФИО и дня рождения достаточно для индификации человека
+    //Сравнение по параметрам Имени, Возраста,веса , характера и типа, ЭТОГО ДОСТАТОЧНО, чтобы определить одинаковых драконов, также как ФИО и дня рождения достаточно для индификации человека
 
     @Override
     public boolean equals(StoredType obj) {
-        return getName().equals(obj.getName()) && getAge().equals(obj.getAge()) && getWeight() == obj.getWeight() && getCharacter().equals(obj.getCharacter()) && getType().equals(obj.getType()) && this.equalseBirthday(obj);
-    }
-
-    private boolean equalseBirthday(StoredType obj){
-        return getKiller().getBirthday().toString().equals(obj.getKiller().getBirthday().toString());
+        return getName().equals(obj.getName()) && getAge().equals(obj.getAge()) && getWeight() == obj.getWeight() && getCharacter().equals(obj.getCharacter()) && getType().equals(obj.getType());
     }
 
     @Override
