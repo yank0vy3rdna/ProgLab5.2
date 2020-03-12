@@ -182,7 +182,7 @@ public class DragonReader implements StoredTypeReader {
 
         }
         Dragon dragon = new Dragon(name,coordinates,age,weight,dragonType,dragonCharacter,killer);
-        if(!id.equals("null")){
+        if(id != null && !id.equals("null")){
             dragon.setId(Long.parseLong(id));
         }
         //Dragon(long id, String name, Coordinates coordinates, LocalDateTime creationDate, Long age, long weight, DragonType type, DragonCharacter character, Person killer)

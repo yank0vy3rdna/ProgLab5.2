@@ -36,7 +36,6 @@ public class Dispatcher {
     public String dispatch(String line) throws IOException {
         if(commandsMap.get(line.split(" ")[0].toLowerCase()) != null) {
             Executable command = commandsMap.get(line.split(" ")[0]);
-            collectionWorker.sortCollection();
             return command.exec(line, this);
         }else if (!line.split(" ")[0].toLowerCase().equals(""))
             return "No command";

@@ -19,5 +19,5 @@ public interface Storable {
     void removeLower(StoredType object);
     boolean insert(StoredType hum);
     int coutAge(int number);
-    void sortCollection();
+
 }

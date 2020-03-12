@@ -98,7 +98,8 @@ public class CollectionWorker implements Storable {
                 break;
             }
         }
-        collection.add(object);
+        if(!flag)
+            collection.add(object);
 
         return !flag;
     }
@@ -112,14 +113,4 @@ public class CollectionWorker implements Storable {
         return cnt;
     }
 
-    @Override
-    public void sortCollection() {
-        Comparator<Dragon> comp = new DragonNameComparator().thenComparing(new DragonAgeComparator());
-        TreeSet<Dragon> dragonTreeSet = new TreeSet(comp);
-        for(StoredType e: this.collection){
-            dragonTreeSet.add((Dragon) e);
-        }
-        clear();
-        collection.addAll(dragonTreeSet);
-    }
 }

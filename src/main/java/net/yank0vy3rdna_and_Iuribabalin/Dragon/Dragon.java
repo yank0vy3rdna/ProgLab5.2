@@ -103,7 +103,15 @@ public class Dragon implements StoredType {
     public int compareTo(StoredType obj) {
         if (obj instanceof Dragon){
             if (age.equals(((Dragon) obj).age)){
-                if (weight == ((Dragon) obj).weight){
+                if (weight == ((Dragon) obj).weight) {
+                    if (name.equals(obj.getName())) {
+                        if (character.equals(obj.getCharacter())) {
+                            if (type.equals(obj.getType())) {
+                                return type.compareTo(((Dragon) obj).type);
+                            }
+                        }
+                        return character.compareTo(((Dragon) obj).character);
+                    }
                     return name.compareTo(((Dragon) obj).name);
                 }
                 return Long.compare(weight, ((Dragon) obj).weight);
