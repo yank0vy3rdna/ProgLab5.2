@@ -18,7 +18,15 @@ public class DragonReader implements StoredTypeReader {
     }
     public StoredType create(String id){
 
-        String name = ui.readField("dragonname");
+        String name;
+        while(true) {
+            name = ui.readField("dragonname");
+            if(name == null || name.equals(""))
+                ui.print("Введите имя");
+            else
+                break;
+        }
+
         double coordinatesx;
         while (true) {
             try {

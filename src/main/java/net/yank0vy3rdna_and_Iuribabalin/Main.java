@@ -2,15 +2,11 @@ package net.yank0vy3rdna_and_Iuribabalin;
 
 import com.google.gson.JsonDeserializer;
 import net.yank0vy3rdna_and_Iuribabalin.App.App;
-import net.yank0vy3rdna_and_Iuribabalin.App.ObjectInterfaces.StoredType;
-import net.yank0vy3rdna_and_Iuribabalin.App.ObjectInterfaces.StoredTypeReader;
+import net.yank0vy3rdna_and_Iuribabalin.App.ObjectInterfaces.*;
 import net.yank0vy3rdna_and_Iuribabalin.Commands.*;
-import net.yank0vy3rdna_and_Iuribabalin.Dragon.DragonDeserializer;
-import net.yank0vy3rdna_and_Iuribabalin.Dragon.DragonReader;
-import net.yank0vy3rdna_and_Iuribabalin.FileWork.FileReader;
-import net.yank0vy3rdna_and_Iuribabalin.FileWork.WorkFile;
-import net.yank0vy3rdna_and_Iuribabalin.JSON.JSONWorker;
-import net.yank0vy3rdna_and_Iuribabalin.JSON.Workerable;
+import net.yank0vy3rdna_and_Iuribabalin.Dragon.*;
+import net.yank0vy3rdna_and_Iuribabalin.FileWork.*;
+import net.yank0vy3rdna_and_Iuribabalin.JSON.*;
 
 import java.io.IOException;
 import java.util.HashMap;
