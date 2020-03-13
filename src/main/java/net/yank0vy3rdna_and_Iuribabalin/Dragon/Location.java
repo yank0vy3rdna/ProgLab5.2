@@ -25,7 +25,10 @@ public class Location {
         this.z = z;
         this.name = name;
     }
-
+    @Override
+    public int hashCode() {
+        return Double.valueOf(x).hashCode()*Float.valueOf(y).hashCode()*z.hashCode()* name.hashCode();
+    }
     private Long z; //Поле не может быть null
     private String name; //Длина строки не должна быть больше 817, Поле не может быть null
 }

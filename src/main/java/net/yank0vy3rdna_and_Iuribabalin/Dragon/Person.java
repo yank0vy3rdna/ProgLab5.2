@@ -27,7 +27,13 @@ public class Person {
     public Location getLocation() {
         return location;
     }
-
+    @Override
+    public int hashCode() {
+        return weight.hashCode()
+                * Long.valueOf(height).hashCode()
+                * birthday.hashCode()
+                * location.hashCode();
+    }
     public Person(String name, Date birthday, long height, Long weight, Location location) throws IllegalArgumentException, NullPointerException {
         if (name == null || name.isEmpty()){
             throw new IllegalArgumentException("Invalid name");
