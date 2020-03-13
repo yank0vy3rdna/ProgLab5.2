@@ -20,7 +20,7 @@ public class JSONWorker implements Workerable {
 	public Object readValue(String json, Class cls){
 		try {
 			return (gson).fromJson(json, cls);
-		}catch (NullPointerException e){
+		}catch (NullPointerException | UnsupportedOperationException e){
 			return "Файл битый";
 		}
 	}
